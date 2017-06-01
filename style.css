@@ -17,11 +17,12 @@
 .button-outer{
   width: 35px;
   height: 35px;
-  background: grey;
+  background: #af3b3f;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .button-inner{
@@ -33,7 +34,7 @@
 }
 
 .button-selected{
-  background: black;
+  background: #FF5A5F;
 }
 
 .button-name{
@@ -44,7 +45,7 @@
 #grid{
   display: table;
   width: auto;
-  border: 1px solid grey;
+  border: 1px solid #af3b3f;
 }
 
 .table-row{
@@ -58,19 +59,16 @@
   display: table-column;
   width: 140px;
   height: 70px;
-  border: 1px solid #666666;
-  text-align: right;
-  padding: 20px 20px 0 0;
+  border: 1px solid #af3b3f;
+  text-align: center;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .table-header{
   height: 60px;
-}
-
-.table-name{
-  text-align: left;
-  padding: 20px;
+  background: #FF5A5F;
+  border: 1px solid #af3b3f;
 }
 
 .col-more{

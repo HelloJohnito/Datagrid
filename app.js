@@ -75,30 +75,25 @@ function addElement(row) {
     newTableColumn.classList.add("table-col");
     newTableColumn.dataset.col = col;
 
-    // add "table-name" CSS property to name column
     var newContent;
-    if(col === "name"){
-      newTableColumn.classList.add("table-name");
-      newContent = document.createTextNode(row[col]);
-    } else {
       // check for multiple inputs. Example: bestcase and commit
-      if(row[col] instanceof Array){
-        // add CSS property "col-more" to all inputs except the first.
-        // the "col-more" property will toggle to display depending on the selected button.
-        for(var index = 0; index < row[col].length; index ++){
-          var innerColDiv = document.createElement("div");
-          newContent = document.createTextNode(row[col][index]);
+    if(row[col] instanceof Array){
+      // add CSS property "col-more" to all inputs except the first.
+      // the "col-more" property will toggle to display depending on the selected button.
+      for(var index = 0; index < row[col].length; index ++){
+        var innerColDiv = document.createElement("div");
+        newContent = document.createTextNode(row[col][index]);
 
-          if(index !== 0) innerColDiv.classList.add("col-more");
-          innerColDiv.appendChild(newContent);
-          newTableColumn.appendChild(innerColDiv);
-        }
-        newTableRow.appendChild(newTableColumn);
-        return;
+        if(index !== 0) innerColDiv.classList.add("col-more");
+        innerColDiv.appendChild(newContent);
+        newTableColumn.appendChild(innerColDiv);
       }
-
-      newContent = document.createTextNode(row[col]);
+      newTableRow.appendChild(newTableColumn);
+      return;
     }
+
+    newContent = document.createTextNode(row[col]);
+  
 
     newTableColumn.appendChild(newContent);
     newTableRow.appendChild(newTableColumn);
