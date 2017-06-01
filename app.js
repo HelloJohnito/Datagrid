@@ -73,6 +73,7 @@ function addElement(row) {
   Object.keys(row).forEach(function(col){
     var newTableColumn = document.createElement("div");
     newTableColumn.classList.add("table-col");
+    newTableColumn.classList.add(`table-${col}`);
     newTableColumn.dataset.col = col;
 
     var newContent;
