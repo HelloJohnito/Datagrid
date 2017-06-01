@@ -82,7 +82,7 @@ function addElement(row) {
       // the "col-more" property will toggle to display depending on the selected button.
       for(var index = 0; index < row[col].length; index ++){
         var innerColDiv = document.createElement("div");
-        newContent = document.createTextNode(row[col][index]);
+        newContent = document.createTextNode(parseNumToDollars(row[col][index]));
 
         if(index !== 0) innerColDiv.classList.add("col-more");
         innerColDiv.appendChild(newContent);
@@ -92,18 +92,35 @@ function addElement(row) {
       return;
     }
 
-    newContent = document.createTextNode(row[col]);
-  
+    newContent = document.createTextNode(parseNumToDollars(row[col]));
+
 
     newTableColumn.appendChild(newContent);
     newTableRow.appendChild(newTableColumn);
   });
 }
 
-// function parseNumToDollars(num){
-//   var numToString = num.toString();
-// }
-//
+
+function parseNumToDollars(num){
+  if(typeof num === "string") return num;
+
+  var numToString = num.toString();
+  var counter = 0;
+  for(var i = numToString.length; i >= 0; i--){
+    if(counter === 3){
+      counter = 0;
+      numToString = numToString.slice(0,i) + "," + numToString.slice(i,numToString.length);
+    }
+    counter += 1;
+  }
+  if(numToString[0] === ","){
+    numToString = "$" + numToString.slice(1,numToString.length);
+  } else {
+    numToString = '$' + numToString;
+  }
+
+  return numToString;
+}
 
 ////////////////////////////////////
        // Sorting Function//
@@ -171,10 +188,10 @@ function updateTable(sortedObjArray){
         // edge case for bestcase and commit
         if(sortedObject[tableCol.dataset.col] instanceof Array){
           for(var i = 0; i < tableCol.children.length; i++){
-            tableCol.children[i].innerHTML = sortedObject[tableCol.dataset.col][i];
+            tableCol.children[i].innerHTML = parseNumToDollars(sortedObject[tableCol.dataset.col][i]);
           }
         } else {
-          tableCol.innerHTML = sortedObject[tableCol.dataset.col];
+          tableCol.innerHTML = parseNumToDollars(sortedObject[tableCol.dataset.col]);
         }
     }
   }

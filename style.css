@@ -69,6 +69,7 @@
   height: 60px;
   background: #FF5A5F;
   border: 1px solid #af3b3f;
+  cursor: pointer;
 }
 
 .col-more{
