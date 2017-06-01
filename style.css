@@ -1,3 +1,5 @@
+
+/*more or less button*/
 .selector-more-less{
   border: 1px solid;
   width: 250px;
@@ -42,6 +44,7 @@
 }
 
 
+/*table*/
 #grid{
   display: table;
   width: auto;
@@ -76,22 +79,46 @@
   display: none;
 }
 
-.table-name{
-
+.disabled{
+  display: none;
 }
 
-.table-plan{
+/*multiselectors*/
 
+.multiselect{
+  width: 200px;
 }
 
-.table-forcast{
-
+.selectbox{
+  position: relative;
 }
 
-.table-bestcase{
-
+.selectbox select {
+  width: 50px;
+  font-weight: bold;
 }
 
-.table-commit{
-  
+.overselect{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+.selector-disable{
+  color: grey;
+}
+
+/*#checkboxes label:hover{
+  background-color: #dadada;
+}*/
