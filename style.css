@@ -54,6 +54,10 @@ body{
 
 /*table*/
 
+.table-container{
+  min-width: 750px;
+}
+
 #grid{
   display: table;
   width: auto;
