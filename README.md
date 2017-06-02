@@ -1,6 +1,6 @@
 # Data Grid
 
-[DataGrid Link](https://hellojohnito.github.io/datagrid/)
+[DataGrid Link](https://hellojohnito.github.io/Datagrid/)
 
 Data Grid is an application that formats JSON objects into a data table. Written in Vanilla JavaScript, CSS, and HTML.
 
