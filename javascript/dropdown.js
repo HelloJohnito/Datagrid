@@ -74,15 +74,6 @@ function handleSubmit(e){
       }
     }
   });
-
-  //place the selector at the last column
-  // var dropdowns = document.querySelectorAll('#checkbox-form');
-  // console.log(dropdowns)
-  // for(var i = dropdowns.length - 1; i >= 0; i--){
-  //   console.log(dropdowns[i].dataset.form);
-  //   if(formCheck[dropdowns[i].dataset.form]){
-  //     console.log(formCheck[dropdowns[i].dataset.form])
-
   return;
 }
 

@@ -4,7 +4,7 @@ var colHeader = document.querySelector(".table-row-1");
 function createTable(data){
   var jsonDataKeys = Object.keys(data);
 
-  // create the dropdown form
+  // function located in dropdown.js
   createForm(data, jsonDataKeys[0]);
 
   //Loop over the jsonData and create rows and columns for the table

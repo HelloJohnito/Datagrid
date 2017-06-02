@@ -1,5 +1,13 @@
+body{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /*more or less button*/
+
 .selector-more-less{
   border: 1px solid;
   width: 250px;
@@ -85,11 +93,11 @@
   display: none;
 }
 
+
 /*multiselectors*/
 
 #checkbox-form{
   width: 34px;
-  margin-left: 83px;
   position: absolute;
   right: 5px;
   top: 37px;
@@ -104,17 +112,18 @@
 }
 
 .selectbox select {
-  /*width: 120px;
-  height: 30px;*/
   width: 34px;
   height: 20px;
   background: white;
-  border: 1px solid;
-  cursor: pointer;
+  border: 1px solid #af3b3f;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url(https://res.cloudinary.com/deh9l9lyq/image/upload/v1496428149/redarrow_ikumyp.png) 55% / 52% no-repeat #eee;
 }
 
-
 .overselect{
+  cursor: pointer;
   position: absolute;
   top: 0;
   bottom: 0;

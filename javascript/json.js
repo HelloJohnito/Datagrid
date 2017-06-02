@@ -1,5 +1,6 @@
-
 // Data in json format
+
+
 var jsonData = {
   europe:{
     name: "Europe",
