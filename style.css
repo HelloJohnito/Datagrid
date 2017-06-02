@@ -45,10 +45,12 @@
 
 
 /*table*/
+
 #grid{
   display: table;
   width: auto;
   border: 1px solid #af3b3f;
+  position: relative;
 }
 
 .table-row{
@@ -85,8 +87,16 @@
 
 /*multiselectors*/
 
+#checkbox-form{
+  width: 34px;
+  margin-left: 83px;
+  position: absolute;
+  right: 5px;
+  top: 37px;
+}
+
 .multiselect{
-  width: 200px;
+  width: 34px;
 }
 
 .selectbox{
@@ -94,9 +104,15 @@
 }
 
 .selectbox select {
-  width: 50px;
-  font-weight: bold;
+  /*width: 120px;
+  height: 30px;*/
+  width: 34px;
+  height: 20px;
+  background: white;
+  border: 1px solid;
+  cursor: pointer;
 }
+
 
 .overselect{
   position: absolute;
@@ -106,19 +122,40 @@
   right: 0;
 }
 
+input[type="checkbox"]{
+  cursor: pointer;
+}
+
 #checkboxes {
   display: none;
+  width: 130px;
   border: 1px #dadada solid;
+  position: absolute;
+  background: white;
 }
+
 
 #checkboxes label {
   display: block;
+  cursor: pointer;
+  display: flex;
 }
 
-.selector-disable{
+.apply-button{
+  width: 120px;
+  background: #dadada;
+  border: 1px solid #dadada;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 3px 5px 3px;
+}
+
+.apply-button:hover {
+  background: grey;
+  border: 1px solid grey;
+}
+
+.selector-disable {
   color: grey;
+  text-decoration: line-through;
 }
-
-/*#checkboxes label:hover{
-  background-color: #dadada;
-}*/

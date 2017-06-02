@@ -9,20 +9,6 @@
   <body>
     <h1>Data Grid</h1>
 
-    <form id="checkbox-form">
-      <div class="multiselect">
-        <div class="selectbox">
-          <select>
-            <option> V </option>
-          </select>
-          <div class="overselect"></div>
-        </div>
-
-        <div id="checkboxes"></div>
-      </div>
-
-    </form>
-
     <div class="selector-more-less">
       <div class="selector-container">
         <div class="button-outer button-more">
@@ -42,17 +28,38 @@
 
     <div id="grid">
       <div class="table-row table-row-1">
+
         <div class="table-col table-header table-name" data-col="name">Name</div>
+
         <div class="table-col table-header table-plan" data-col="plan">Plan</div>
+
         <div class="table-col table-header table-forecast" data-col="forecast">Fore Cast</div>
+
         <div class="table-col table-header table-bestcase" data-col="bestcase">Best Case</div>
+
         <div class="table-col table-header table-commit" data-col="commit">Commit</div>
+
         <div class="table-col table-header table-monthlypay disabled" data-col="monthlypay">Monthly Pay</div>
+
         <div class="table-col table-header table-comment disabled" data-col="comment">Comment</div>
+
+        <form id="checkbox-form">
+          <div class="multiselect">
+            <div class="selectbox">
+              <select>
+                <option> Select 5 columns </option>
+              </select>
+              <div class="overselect"></div>
+            </div>
+            <div id="checkboxes"></div>
+          </div>
+        </form>
+
       </div>
     </div>
 
   </body>
+
   <script src="./javascript/json.js"></script>
   <script src="./javascript/dropdown.js"></script>
   <script src="./javascript/more_less_selector.js"></script>

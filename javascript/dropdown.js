@@ -58,7 +58,6 @@ function createForm(data, key){
 // on 'apply', hides all columns that are not checked.
 function handleSubmit(e){
   if(e.preventDefault) e.preventDefault();
-
   Object.keys(formCheck).forEach(function(key){
     var unCheckedColumns;
     if(key !== 'count' && !formCheck[key]){
@@ -75,6 +74,14 @@ function handleSubmit(e){
       }
     }
   });
+
+  //place the selector at the last column
+  // var dropdowns = document.querySelectorAll('#checkbox-form');
+  // console.log(dropdowns)
+  // for(var i = dropdowns.length - 1; i >= 0; i--){
+  //   console.log(dropdowns[i].dataset.form);
+  //   if(formCheck[dropdowns[i].dataset.form]){
+  //     console.log(formCheck[dropdowns[i].dataset.form])
 
   return;
 }
