@@ -6,12 +6,12 @@ var checkboxExpanded = false;
 
 
 function createForm(data, key){
-  // loop over the column titles
+  // Loop over the column titles:
   // [name, plan, forecast, bestcase, commit]
-  // and append to checkbox form
+  // And append to checkbox form
   Object.keys(data[key]).forEach(function(colTitle){
 
-    //Select the first 5 column titles to display
+    // Select the first 5 column titles to display
     if(formCheck['count'] < 5){
       formCheck[colTitle] = true;
       formCheck['count'] += 1;
@@ -19,7 +19,7 @@ function createForm(data, key){
       formCheck[colTitle] = false;
     }
 
-    // create the html elements and place them under id=checkboxes
+    // Create the html elements and place them under id=checkboxes
     var label = document.createElement("label");
     var inputCheckbox = document.createElement("input");
     var titleContent = document.createTextNode(`${colTitle}`); // capitalize
@@ -28,7 +28,7 @@ function createForm(data, key){
     inputCheckbox.classList.add(`checkbox-${colTitle}`);
     inputCheckbox.name = `${colTitle}`;
 
-    //precheck the first five and disable the rest
+    // Pre-check the first five and disable the rest
     if(formCheck[colTitle]){
       inputCheckbox.checked = "checked";
     } else {
@@ -42,7 +42,7 @@ function createForm(data, key){
     checkboxes.appendChild(label);
   });
 
-  // append apply button at the end
+  // Append apply button at the end
   var label = document.createElement("label");
   var inputSubmit = document.createElement("input");
   inputSubmit.type = "submit";
@@ -55,18 +55,18 @@ function createForm(data, key){
 }
 
 
-// on 'apply', hides all columns that are not checked.
+// On click 'apply', hides all columns that are not checked.
 function handleSubmit(e){
   if(e.preventDefault) e.preventDefault();
   Object.keys(formCheck).forEach(function(key){
     var unCheckedColumns;
     if(key !== 'count' && !formCheck[key]){
-      // append display-none to all unchecked columns
+      // Append display-none to all unchecked columns
       unCheckedColumns = document.querySelectorAll(`.table-${key}`);
       for(var i = 0; i < unCheckedColumns.length; i++){
         unCheckedColumns[i].classList.add("disabled");
       }
-      // display checked columns
+      // Display checked columns
     } else if( key !== 'count' && formCheck[key]) {
       unCheckedColumns = document.querySelectorAll(`.table-${key}`);
       for(var j = 0; j < unCheckedColumns.length; j++){
@@ -78,9 +78,8 @@ function handleSubmit(e){
 }
 
 
-// append eventlistener to selectbox to display checkboxes
+// Append eventlistener to selectbox to display checkboxes
 selectbox.addEventListener("click", function(){
-  // var checkboxes = document.getElementById("checkboxes"); // can delete
   if(!checkboxExpanded){
     checkboxes.style.display = "block";
     checkboxExpanded = true;
@@ -90,11 +89,11 @@ selectbox.addEventListener("click", function(){
   }
 });
 
-//append eventlistener to form to handle submit button
+// Append eventlistener to form to handle submit button
 form.addEventListener("submit", handleSubmit);
 
-//append eventlistener to checkedbox
-// limits five checks
+// Append eventlistener to checkedbox
+// Limits five checks
 checkboxes.addEventListener("click", function(){
   if(event.target.name === undefined || event.target.name === "") return;
 
@@ -106,9 +105,9 @@ checkboxes.addEventListener("click", function(){
     formCheck['count'] += 1;
   }
 
-  //limit five
+  // Limit five selected items
   if(formCheck['count'] ===  5){
-    //disable all other buttons
+    // Disable all other buttons
     Object.keys(formCheck).forEach(function(key){
       if(!formCheck[key]){
         var disableSelector = document.querySelector(`.checkbox-${key}`);
@@ -116,7 +115,7 @@ checkboxes.addEventListener("click", function(){
         disableSelector.disabled = true;
       }
     });
-    //undisable buttons when count is not five.
+    // 'Undisable' buttons when count is not five.
   } else if(formCheck['count'] === 4){
     Object.keys(formCheck).forEach(function(key){
       if(!formCheck[key]){

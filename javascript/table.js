@@ -4,40 +4,41 @@ var colHeader = document.querySelector(".table-row-1");
 function createTable(data){
   var jsonDataKeys = Object.keys(data);
 
-  // function located in dropdown.js
+  // 'createForm' function located in dropdown.js
   createForm(data, jsonDataKeys[0]);
 
-  //Loop over the jsonData and create rows and columns for the table
+  // Loop over the jsonData and create rows and columns for the table
   jsonDataKeys.forEach(function(row){
     addElement(data[row]);
   });
 }
 
 function addElement(row) {
-  //create row
+  // Create row
   var newTableRow = document.createElement("div");
   newTableRow.classList.add("table-row");
   grid.appendChild(newTableRow);
 
-  //create columns
+  // Create columns
   Object.keys(row).forEach(function(col){
     var newTableColumn = document.createElement("div");
     newTableColumn.classList.add("table-col");
     newTableColumn.classList.add(`table-${col}`);
 
-    //show only five columns, disable those that are not selected
-    //formCheck is an object with keys as column name
-    // and values as a boolean depending on if it is selected
+    // Show only five columns, disable those that are not selected
+    // FormCheck is an object with keys as column name
+    // And values as a boolean depending on if it is selected
+    // FormCheck can be found on dropdown.js
     if(!formCheck[col]){
       newTableColumn.classList.add("disabled");
     }
 
     newTableColumn.dataset.col = col;
     var newContent;
-      // check for multiple inputs. Example: bestcase and commit
+      // Check for multiple inputs. Example: bestcase and commit
     if(row[col] instanceof Array){
-      // add CSS property "col-more" to all inputs except the first.
-      // the "col-more" property will toggle to display depending on the selected button.
+      // Add CSS property "col-more" to all inputs except the first.
+      // The "col-more" property will toggle to display depending on the selected button.
       for(var index = 0; index < row[col].length; index ++){
         var innerColDiv = document.createElement("div");
         newContent = document.createTextNode(parseNumToDollars(row[col][index]));
@@ -61,7 +62,7 @@ function addElement(row) {
        // Sorting Function//
 ////////////////////////////////////
 
-// keep track of descending or ascending
+// Keep track of descending or ascending
 var descendingObject = {
   name: false,
   plan: false,
@@ -88,13 +89,13 @@ function createObjToArray(obj){
 
 function sortByColumns(selectedColumn){
 
-  // returns an array with objects sorted by selected column
+  // Returns an array with objects sorted by selected column
   var sortedObjArray = sortingObj(jsonDataArray, descendingObject[selectedColumn], selectedColumn);
 
-  //toggle the boolean in descendingObject for next time it is clicked.
+  //Toggle the boolean in descendingObject for next time it is clicked.
   descendingObject[selectedColumn] = descendingObject[selectedColumn] === false ? true : false;
 
-  //re-renders the table
+  //Re-renders the table
   updateTable(sortedObjArray);
 }
 
@@ -128,14 +129,14 @@ function sortingObj(objArray, descending, selectedColumn){
 
 function updateTable(sortedObjArray){
   let num = 0;
-  //iterate through each row and column and replace the innerhtml with new sorted input.
+  // Iterate through each row and column and replace the innerhtml with new sorted input.
   for(var rowIndex = 1; rowIndex < grid.children.length;  rowIndex++){
     var tableRow = grid.children[rowIndex];
     for(var colIndex = 0; colIndex < tableRow.children.length; colIndex++){
         var tableCol = tableRow.children[colIndex];
         var sortedObject = sortedObjArray[rowIndex - 1];
 
-        // edge case for bestcase and commit (multiple inputs)
+        // Edge case for bestcase and commit (multiple inputs)
         if(sortedObject[tableCol.dataset.col] instanceof Array){
           for(var i = 0; i < tableCol.children.length; i++){
             tableCol.children[i].innerHTML = parseNumToDollars(sortedObject[tableCol.dataset.col][i]);
@@ -170,7 +171,7 @@ function parseNumToDollars(num){
 }
 
 
-//append eventlistener to the column header for sorting
+// Append eventlistener to the column header for sorting
 colHeader.addEventListener("click", function(event){
   sortByColumns(event.target.dataset.col);
 });

@@ -5,7 +5,7 @@ var displayMore = false;
 function addEventListenerMoreLess(){
   var moreCol = document.querySelectorAll(".col-more");
 
-  // append eventlistener to 'more' button. Toggles the button to display 'more' content and changes the color of the button to selected.
+  // Append eventlistener to 'more' button. Toggles the button to display 'more' content and changes the color of the button to selected.
   moreButton.addEventListener("click", function(){
       if(!displayMore){
         for(var index = 0; index < moreCol.length; index++){
@@ -17,7 +17,7 @@ function addEventListenerMoreLess(){
       }
   });
 
-  //append eventlistener to less button. vice versa from moreButton.
+  // Append eventlistener to less button. vice versa from moreButton.
   lessButton.addEventListener("click", function(){
     if(displayMore){
       for(var index = 0; index < moreCol.length; index++){
